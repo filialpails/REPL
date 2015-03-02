@@ -1,0 +1,8 @@
+## Interface: 60100
+## Title: REPL
+## Notes: Lua read-eval-print loop with tab completion, command history, and pretty-printing of return values.
+## Version: 1.0.0
+## X-License: GNU GPL v3, 29 June 2007
+
+repl.xml
+repl.lua

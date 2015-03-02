@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance"
+    xsi:schemaLocation="http://www.blizard.com/wow/ui/ ..\FrameXML\UI.xsd">
+  <Font name="REPLFont"
+        virtual="true"
+        font="Interface\AddOns\REPL\ubuntu.ttf"
+        justifyH="LEFT">
+    <FontHeight><AbsValue val="12"/></FontHeight>
+
+    <Color r="1" g="1" b="1"/>
+  </Font>
+
+  <Frame name="REPL"
+         inherits="BaseBasicFrameTemplate"
+         parent="UIParent"
+         frameStrata="DIALOG"
+         movable="true"
+         resizable="true"
+         clampedToScreen="true"
+         hidden="true"
+         toplevel="true"
+         enableMouse="true"
+         enableKeyboard="true">
+    <Size x="720" y="432"/>
+
+    <Anchors>
+      <Anchor point="CENTER"/>
+    </Anchors>
+
+    <TitleRegion>
+      <Size y="17"/>
+      <Anchors>
+        <Anchor point="TOPLEFT"/>
+        <Anchor point="TOPRIGHT"/>
+      </Anchors>
+    </TitleRegion>
+
+    <Layers>
+      <Layer level="BACKGROUND">
+        <Texture file="Interface\Tooltips\UI-Tooltip-Background">
+          <Anchors>
+            <Anchor point="TOPLEFT" x="2" y="-21"/>
+            <Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+          </Anchors>
+          <Color r="0" g="0" b="0" a="0.75"/>
+        </Texture>
+
+        <Texture inherits="_UI-Frame-TitleTileBg">
+          <Anchors>
+            <Anchor point="TOPLEFT" x="2" y="-3"/>
+            <Anchor point="TOPRIGHT" x="-25" y="-3"/>
+          </Anchors>
+        </Texture>
+      </Layer>
+    </Layers>
+
+    <Frames>
+      <ScrollingMessageFrame name="$parent_msg"
+                             enableMouse="true"
+                             fade="false"
+                             maxLines="256">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset x="4" y="-16"/>
+          </Anchor>
+
+          <Anchor point="TOPRIGHT">
+            <Offset x="-4" y="-16"/>
+          </Anchor>
+
+          <Anchor point="BOTTOMLEFT">
+            <Offset x="4" y="32"/>
+          </Anchor>
+
+          <Anchor point="BOTTOMRIGHT">
+            <Offset x="-4" y="32"/>
+          </Anchor>
+        </Anchors>
+
+        <FontString inherits="REPLFont"
+                    wordwrap="true"
+                    nonspacewrap="true"
+                    justifyH="LEFT"/>
+      </ScrollingMessageFrame>
+
+      <EditBox name="$parent_EditBox"
+               inherits="InputBoxTemplate"
+               historyLines="256"
+               font="REPLFont">
+        <Size y="16"/>
+
+        <Anchors>
+          <Anchor point="BOTTOMLEFT">
+            <Offset x="10" y="6"/>
+          </Anchor>
+
+          <Anchor point="BOTTOMRIGHT">
+            <Offset x="-6" y="6"/>
+          </Anchor>
+        </Anchors>
+      </EditBox>
+    </Frames>
+  </Frame>
+</Ui>
